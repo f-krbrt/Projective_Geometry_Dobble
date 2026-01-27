@@ -27,7 +27,11 @@ class Z3Z:
         return (self.x*other.x + self.y*other.y + self.z*other.z + self.t*other.t)%3==0
 
 
+##Exemple :
+#Ici on devrait avoir False
 print(Z3Z.solution(Z3Z(1,2,1,0),Z3Z(0,0,1,2)))
+#Ici on devrait avoir True
+print(Z3Z.solution(Z3Z(1,2,0,0),Z3Z(1,1,0,2)))
 
 
 
@@ -35,7 +39,7 @@ print(Z3Z.solution(Z3Z(1,2,1,0),Z3Z(0,0,1,2)))
 
 
 def liste_points(p):
-    """cette fonction crée une base de point (ou plan) dans Z3Z"""
+    """cette fonction crée une base de point (ou plan) dans ZPZ, dans notre cas on a p = 3"""
     L=[]
     for x in range(0,p):
         for y in range(0,p):
@@ -45,14 +49,15 @@ def liste_points(p):
             L.append(Z3Z(x,y,1,0))
         L.append(Z3Z(x,1,0,0))
     L.append(Z3Z(1,0,0,0))
-
-
     return L
 
-def tri_pointaffine_pointsinfini(l):
 
+
+def tri_pointaffine_pointsinfini(l):
     """
-    cette fonction tri la liste des points ( affine + infinie) et renvoie la liste de ces meme point en commancant par les points affine"""
+    cette fonction tri une liste de points (affine + infinie) et renvoie la liste de ces memes points en commencant
+    par les points affines
+    """
     laff=[]
     linf=[]
     for i in l:
@@ -66,6 +71,9 @@ def tri_pointaffine_pointsinfini(l):
 
 
 def affiche_liste_points(p):
+    """
+    Cette fonction affiche simplement tous les points créés par liste_points(p)
+    """
     L=liste_points(p)
     for i in L:
         print(Z3Z.show(i))
@@ -74,10 +82,15 @@ def affiche_liste_points(p):
     return
 
 def affiche_liste_Z3Z(l):
+    """
+    Cette fonction affiche tous les point d'une liste l
+    """
     for i in l:
         print(Z3Z.show(i))
-    return
+    return None
 
+
+#------Test--------
 #affiche_liste_points(3)
 #affiche_liste_Z3Z(liste_points(3))
 affiche_liste_Z3Z(tri_pointaffine_pointsinfini(liste_points(3)))
@@ -88,7 +101,7 @@ affiche_liste_Z3Z(tri_pointaffine_pointsinfini(liste_points(3)))
 
 def plans_sol(p,lplan):
     """argument : p = un point dans Z/3Z ;
-                  lpan = tout les plans existant dans Z/3Z
+                  lpan = liste de tous les plans existant dans Z/3Z
 
     renvoie la liste des plans auxquelle le point p appartient"""
 
@@ -106,13 +119,15 @@ def plans_sol(p,lplan):
 
 
 def affiche_plan_sol(p,lplan):
+    """    
+    Affiche les plans solution d'un point (plan auxquels il appartient)
+    """
     lst_plan_sol = plans_sol(p,lplan)
-    print("le point p :",Z3Z.show(p),"appartient a chacun de ces plan : \n\n")
+    print("le point p :",Z3Z.show(p)," appartient a chacun de ces plan : \n\n")
     for i in lst_plan_sol:
         print(Z3Z.show(i))
         #print(type(Z3Z.show(i)))
-
-    return
+    return None
 
 
 
@@ -141,8 +156,11 @@ symboles=["livre","barrière","épingle","lettre","lait","ballon","maison","pisc
 
 ###
 def dico_final_image(symbole,l1,l2):
-
-    """ renvoie un dico dont les clés sont les points et dont la valeur est la liste des plan auxquelle appartient le point "clef". l1=liste des points en Z3Z ; l2= liste des plans en Z3Z"""
+    """
+    renvoie un dico dont les clés sont les points et dont la valeur est la liste des plan auxquelle appartient le point "clef".
+    l1=liste des points en Z3Z ;
+    l2= liste des plans en Z3Z ;
+    """
     l1u=convert(l1)
     l2u=convert(l2)
     dico_image=attribut(symbole,l2u)
@@ -166,7 +184,7 @@ def dico_final_image(symbole,l1,l2):
 
 
 def attribut(symboles,lplan_uplet):
-    """cette fonction associe a chacun des 40 plan une unique image/symbole"""
+    """cette fonction associe à chacun des 40 plan une unique image/symbole"""
     dico={}
     for i in range(0,len(lplan_uplet)):
         dico[lplan_uplet[i]]=symboles[i]

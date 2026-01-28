@@ -2,7 +2,7 @@
 
 Ce projet implémente un générateur de cartes pour le jeu **Dobble** (aussi connu sous le nom de **Spot It**) en utilisant les principes de la géométrie projective sur le corps fini **ℤ/3ℤ**.
 
-## 📋 Description
+## Description
 
 Le jeu Dobble est un jeu de cartes où chaque paire de cartes partage exactement un symbole en commun. Ce programme utilise la géométrie projective pour générer mathématiquement un jeu de cartes respectant cette propriété fondamentale.
 
@@ -15,26 +15,26 @@ Le programme s'appuie sur la géométrie projective dans l'espace projectif **�
 
 La propriété clé : deux plans distincts se coupent toujours en exactement un point, garantissant qu'une paire de cartes partage exactement un symbole.
 
-## 🎯 Caractéristiques
+## Caractéristiques
 
 - **40 cartes** générées automatiquement
 - **40 symboles** différents
 - Chaque carte contient **4 symboles**
 - Deux cartes quelconques partagent **exactement 1 symbole**
 
-## 🔧 Prérequis
+## Prérequis
 
 - Python 3.x
 - Aucune bibliothèque externe requise
 
-## 🚀 Installation
+## Installation
 
 ```bash
 git clone https://github.com/votre-nom/projective-geometry-dobble.git
 cd projective-geometry-dobble
 ```
 
-## 💻 Utilisation
+## Utilisation
 
 ```bash
 python Projective_Geometry_Dobble.py
@@ -45,7 +45,7 @@ Le programme génère automatiquement les cartes et affiche :
 - Les plans associés à chaque point
 - Un dictionnaire final associant chaque carte à ses symboles
 
-## 📊 Structure du code
+## Structure du code
 
 ### Classe principale
 
@@ -77,7 +77,7 @@ Le programme génère automatiquement les cartes et affiche :
 - `meme3(l1, l2, l3)` : Trouve les éléments communs à trois listes
 - `alignes(a, b, c)` : Vérifie si trois points sont alignés
 
-## 🎨 Liste des symboles
+## Liste des symboles
 
 Le jeu utilise 40 symboles différents :
 ```
@@ -87,7 +87,7 @@ tableau, appareil photo, chat, dragon, tomates, ninja, avion, soleil, telephone,
 écharpe, glace, lampadaire, fromage, fusil, poisson, arbre, fleurs, tobogan, fusée, bateau
 ```
 
-## 📐 Exemple de sortie
+## Exemple de sortie
 
 ```python
 # Carte 31
@@ -100,7 +100,7 @@ tableau, appareil photo, chat, dragon, tomates, ninja, avion, soleil, telephone,
 ['ballon']
 ```
 
-## 🧮 Détails mathématiques
+## Détails mathématiques
 
 ### Espace projectif
 
@@ -120,14 +120,14 @@ ax + by + cz + dt ≡ 0 (mod 3)
 
 Pour deux plans π₁ et π₂ distincts dans ℙ³(ℤ/3ℤ), leur intersection contient exactement un point, garantissant qu'exactement un symbole est partagé entre deux cartes.
 
-## 🔍 Extensions possibles
+## Extensions possibles
 
 - Généralisation à d'autres corps finis (ℤ/pℤ avec p premier)
 - Interface graphique pour visualiser les cartes
 - Export au format PDF imprimable
 - Optimisation des symboles pour éviter les confusions visuelles
 
-## 📝 Licence
+## Licence
 
 Ce projet est libre d'utilisation à des fins éducatives et personnelles.
 
